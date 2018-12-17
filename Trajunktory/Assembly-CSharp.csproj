@@ -61,7 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CreationCountdown.cs" />
+    <Compile Include="Assets\Simple UI\Samples\IconPreview.cs" />
     <Compile Include="Assets\SpawnObject.cs" />
+    <None Include="Assets\Simple UI\Fonts\OFL.txt" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/Trajunktory/Trajunktory/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

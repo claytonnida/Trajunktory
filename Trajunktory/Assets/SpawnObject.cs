@@ -72,6 +72,27 @@ public class SpawnObject : MonoBehaviour
         spawnedObjects[numObjects++] = spawnedObj;
     }
 
+    public void SpawnGivenObject(string objectName)
+    {
+        // Create new empty GameObject.
+        GameObject spawnedObj = new GameObject(objectName + numObjects);
+        // Set it's position at the cent of the hole.
+        spawnedObj.transform.SetPositionAndRotation(new Vector2(-0.37f, 4.365f), new Quaternion(0, 0, 1, 0));
+        // Add the sprite renderer and a random sprite.
+        SpriteRenderer sr = spawnedObj.AddComponent<SpriteRenderer>();
+        sr.sprite = Resources.Load<Sprite>("TestingSpawn/"+objectName);
+        // Give the object a rigid body so that the objects can be effected by gravity.
+        spawnedObj.AddComponent<Rigidbody2D>();
+        // Give it a collider so that it can collide with other objects.
+        spawnedObj.AddComponent<PolygonCollider2D>();
+        // Randomize the objects rotation.
+        spawnedObj.transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(0, 360)));
+        // Put the objects layer infront of the background.
+        sr.sortingOrder = 1;
+        // Add it to our array of objects in the game, and increase the counter.
+        spawnedObjects[numObjects++] = spawnedObj;
+    }
+
     // Moves null values to the end of the array.
     private void MoveNullsToEnd(GameObject[] gameObjects, int index)
     {
